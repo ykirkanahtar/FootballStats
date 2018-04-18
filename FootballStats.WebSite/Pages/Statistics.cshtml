@@ -1,0 +1,351 @@
+﻿@page
+    @model StatisticModel
+        @{
+            ViewData["Title"] = "İstatistikler";
+        }
+
+        <br />
+        <div class="row-fluid">
+            <div class="col-md-3">
+                <div class="table-responsive">
+
+                    <label>Gol Krallığı</label>
+                    <table class="table table-bordered table-condensed table-hover table-striped">
+                        <tbody>
+                            @foreach (var stat in Model.StatisticInfo.TotalGoals)
+                            {
+                                <tr>
+                                    <td><a asp-page="PlayerDetail" asp-route-id="@stat.PlayerId">@stat.Name</a></td>
+                                    <td>@decimal.Truncate(stat.Result)</td>
+                                    <td>@stat.MatchCount</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="row-fluid">
+            <div class="col-md-3">
+                <div class="table-responsive">
+                    <label>Gol Krallığı (Maç Başına)</label>
+                    <table class="table table-bordered table-condensed table-hover table-striped">
+                        <tbody>
+                            @foreach (var stat in Model.StatisticInfo.PerMatchTotalGoal)
+                            {
+                                <tr>
+                                    <td><a asp-page="PlayerDetail" asp-route-id="@stat.PlayerId">@stat.Name</a></td>
+                                    <td>@stat.Result</td>
+                                    <td>@stat.MatchCount</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="row-fluid">
+            <div class="col-md-3">
+                <div class="table-responsive">
+                    <label>Goller (Penaltı Hariç)</label>
+                    <table class="table table-bordered table-condensed table-hover table-striped">
+                        <tbody>
+                            @foreach (var stat in Model.StatisticInfo.TotalPositionGoal)
+                            {
+                                <tr>
+                                    <td><a asp-page="PlayerDetail" asp-route-id="@stat.PlayerId">@stat.Name</a></td>
+                                    <td>@decimal.Truncate(stat.Result)</td>
+                                    <td>@stat.MatchCount</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="row-fluid">
+            <div class="col-md-3">
+                <div class="table-responsive">
+                    <label>Gol (Maç Başına, Penaltı Hariç)</label>
+                    <table class="table table-bordered table-condensed table-hover table-striped">
+                        <tbody>
+                            @foreach (var stat in Model.StatisticInfo.PerMatchPositionGoal)
+                            {
+                                <tr>
+                                    <td><a asp-page="PlayerDetail" asp-route-id="@stat.PlayerId">@stat.Name</a></td>
+                                    <td>@stat.Result</td>
+                                    <td>@stat.MatchCount</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row-fluid">
+            <div class="col-md-3">
+                <div class="table-responsive">
+                    <label>Penaltı</label>
+                    <table class="table table-bordered table-condensed table-hover table-striped">
+                        <tbody>
+                            @foreach (var stat in Model.StatisticInfo.TotalPenaltyGoal)
+                            {
+                                <tr>
+                                    <td><a asp-page="PlayerDetail" asp-route-id="@stat.PlayerId">@stat.Name</a></td>
+                                    <td>@decimal.Truncate(stat.Result)</td>
+                                    <td>@stat.MatchCount</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="row-fluid">
+            <div class="col-md-3">
+                <div class="table-responsive">
+                    <label>Penaltı (Maç Başına)</label>
+                    <table class="table table-bordered table-condensed table-hover table-striped">
+                        <tbody>
+                            @foreach (var stat in Model.StatisticInfo.PerMatchPenaltyGoal)
+                            {
+                                <tr>
+                                    <td><a asp-page="PlayerDetail" asp-route-id="@stat.PlayerId">@stat.Name</a></td>
+                                    <td>@stat.Result</td>
+                                    <td>@stat.MatchCount</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="row-fluid">
+            <div class="col-md-3">
+                <div class="table-responsive">
+                    <label>Penaltı Gol Yüzdesi</label>
+                    <table class="table table-bordered table-condensed table-hover table-striped">
+                        <tbody>
+                            @foreach (var stat in Model.StatisticInfo.PenaltyRatio)
+                            {
+                                <tr>
+                                    <td><a asp-page="PlayerDetail" asp-route-id="@stat.PlayerId">@stat.Name</a></td>
+                                    <td>% @stat.Result</td>
+                                    <td>@stat.MatchCount</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="row-fluid">
+            <div class="col-md-3">
+                <div class="table-responsive">
+                    <label>Asist</label>
+                    <table class="table table-bordered table-condensed table-hover table-striped">
+                        <tbody>
+                            @foreach (var stat in Model.StatisticInfo.TotalAssist)
+                            {
+                                <tr>
+                                    <td><a asp-page="PlayerDetail" asp-route-id="@stat.PlayerId">@stat.Name</a></td>
+                                    <td>@decimal.Truncate(stat.Result)</td>
+                                    <td>@stat.MatchCount</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="row-fluid">
+            <div class="col-md-3">
+                <div class="table-responsive">
+                    <label>Asist (Maç Başına)</label>
+                    <table class="table table-bordered table-condensed table-hover table-striped">
+                        <tbody>
+                            @foreach (var stat in Model.StatisticInfo.PerMatchAssist)
+                            {
+                                <tr>
+                                    <td><a asp-page="PlayerDetail" asp-route-id="@stat.PlayerId">@stat.Name</a></td>
+                                    <td>@stat.Result</td>
+                                    <td>@stat.MatchCount</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="row-fluid">
+            <div class="col-md-3">
+                <div class="table-responsive">
+                    <label>Penaltı Kaçırma</label>
+                    <table class="table table-bordered table-condensed table-hover table-striped">
+                        <tbody>
+                            @foreach (var stat in Model.StatisticInfo.TotalMissedPenalty)
+                            {
+                                <tr>
+                                    <td><a asp-page="PlayerDetail" asp-route-id="@stat.PlayerId">@stat.Name</a></td>
+                                    <td>@decimal.Truncate(stat.Result)</td>
+                                    <td>@stat.MatchCount</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="row-fluid">
+            <div class="col-md-3">
+                <div class="table-responsive">
+                    <label>Penaltı Kaçırma (Maç Başına)</label>
+                    <table class="table table-bordered table-condensed table-hover table-striped">
+                        <tbody>
+                            @foreach (var stat in Model.StatisticInfo.PerMatchMissedPenalty)
+                            {
+                                <tr>
+                                    <td><a asp-page="PlayerDetail" asp-route-id="@stat.PlayerId">@stat.Name</a></td>
+                                    <td>@stat.Result</td>
+                                    <td>@stat.MatchCount</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="row-fluid">
+            <div class="col-md-3">
+                <div class="table-responsive">
+                    <label>Kendi Kalesine Gol</label>
+                    <table class="table table-bordered table-condensed table-hover table-striped">
+                        <tbody>
+                            @foreach (var stat in Model.StatisticInfo.TotalOwnGoal)
+                            {
+                                <tr>
+                                    <td><a asp-page="PlayerDetail" asp-route-id="@stat.PlayerId">@stat.Name</a></td>
+                                    <td>@decimal.Truncate(stat.Result)</td>
+                                    <td>@stat.MatchCount</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="row-fluid">
+            <div class="col-md-3">
+                <div class="table-responsive">
+                    <label>Kendi Kalesine Gol (Maç Başına)</label>
+                    <table class="table table-bordered table-condensed table-hover table-striped">
+                        <tbody>
+                            @foreach (var stat in Model.StatisticInfo.PerMatchOwnGoal)
+                            {
+                                <tr>
+                                    <td><a asp-page="PlayerDetail" asp-route-id="@stat.PlayerId">@stat.Name</a></td>
+                                    <td>@stat.Result</td>
+                                    <td>@stat.MatchCount</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="row-fluid">
+            <div class="col-md-3">
+                <div class="table-responsive">
+                    <label>Kazanma</label>
+                    <table class="table table-bordered table-condensed table-hover table-striped">
+                        <tbody>
+                            @foreach (var stat in Model.StatisticInfo.TotalWin)
+                            {
+                                <tr>
+                                    <td><a asp-page="PlayerDetail" asp-route-id="@stat.PlayerId">@stat.Name</a></td>
+                                    <td>@stat.Result</td>
+                                    <td>@stat.MatchCount</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row-fluid">
+            <div class="col-md-3">
+                <div class="table-responsive">
+                    <label>Kaybetme</label>
+                    <table class="table table-bordered table-condensed table-hover table-striped">
+                        <tbody>
+                            @foreach (var stat in Model.StatisticInfo.TotalLoose)
+                            {
+                                <tr>
+                                    <td><a asp-page="PlayerDetail" asp-route-id="@stat.PlayerId">@stat.Name</a></td>
+                                    <td>@stat.Result</td>
+                                    <td>@stat.MatchCount</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row-fluid">
+            <div class="col-md-3">
+                <div class="table-responsive">
+                    <label>Kazanma %</label>
+                    <table class="table table-bordered table-condensed table-hover table-striped">
+                        <tbody>
+                            @foreach (var stat in Model.StatisticInfo.RatioWin)
+                            {
+                                <tr>
+                                    <td><a asp-page="PlayerDetail" asp-route-id="@stat.PlayerId">@stat.Name</a></td>
+                                    <td>% @stat.Result</td>
+                                    <td>@stat.MatchCount</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row-fluid">
+            <div class="col-md-3">
+                <div class="table-responsive">
+                    <label>Kaybetme %</label>
+                    <table class="table table-bordered table-condensed table-hover table-striped">
+                        <tbody>
+                            @foreach (var stat in Model.StatisticInfo.RatioLoose)
+                            {
+                                <tr>
+                                    <td><a asp-page="PlayerDetail" asp-route-id="@stat.PlayerId">@stat.Name</a></td>
+                                    <td>% @stat.Result</td>
+                                    <td>@stat.MatchCount</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>

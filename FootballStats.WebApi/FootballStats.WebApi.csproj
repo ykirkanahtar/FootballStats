@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <UserSecretsId>02172867-677c-4f80-962f-2fa192b2c53b</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="3.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.0-preview2-final" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\CustomFramework\CustomFramework.WebApiUtils.Authorization\CustomFramework.WebApiUtils.Authorization.csproj" />
+    <ProjectReference Include="..\FootballStats.Contracts\FootballStats.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>
